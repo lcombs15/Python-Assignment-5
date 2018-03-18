@@ -15,7 +15,6 @@ class Creature:
                    + "\n\tWeapon: " + str(self.weapon)
                    + "\n\tArmor: " + str(self.armor))
 
-
 class Hero(Creature):
     # Hero Wrapper Class
     def __init__(self, name, health, weapon, armor):
@@ -26,3 +25,10 @@ class Monster(Creature):
     # Monster Wrapper Class
     def __init__(self, name, health, weapon, armor):
         Creature.__init__(self, name, health, weapon, armor)
+
+""" 
+Example Creatures
+    print(Creature("Lucas",100,Weapon("Knife",17,4), Armor(9001)))
+    print(Hero("Lucas",100,Weapon("Knife",17,4), Armor(9001)))
+    print(Monster("Lucas",100,Weapon("Knife",17,4), Armor(9001)))
+"""
