@@ -1,10 +1,12 @@
+# return winner of fight
+def fight(a, b):
+    return NotImplementedError
+
+
 class Room:
     def __init__(self, treasure, exits):
         self.treasure = treasure
         self.exits = exits
-
-    def fight(a, b):
-        return NotImplementedError
 
     """
         
