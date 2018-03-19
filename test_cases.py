@@ -8,7 +8,7 @@ class TestFighting(unittest.TestCase):
     def test_fight(self):
         weak = Monster("Blob", 2, None, None)
         strong = Hero("Lucas", 400, None, None)
-        self.assertEquals(room.fight(weak,strong), strong)
+        self.assertEqual(room.fight(weak,strong), strong)
 
 
 if __name__ == '__main__':
