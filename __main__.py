@@ -21,7 +21,7 @@ def greeting():
 # Return array of random rooms
 def gen_rooms():
     # retVal = []
-    return NotImplementedError;
+    return NotImplementedError
 
 
 # Prompt user for name, generate random armor, weapon, & health
