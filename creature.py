@@ -1,6 +1,7 @@
 import random
 from weapon import Weapon
 
+
 class Creature:
 
     # Constructor
@@ -10,7 +11,7 @@ class Creature:
         self.weapon = weapon
         self.armor = armor
 
-    #Rand gen
+    # Rand gen
     def __init__(self, name):
         self.name = name
         self.health = random.randInt(20, 100)
@@ -31,7 +32,7 @@ class Hero(Creature):
     def __init__(self, name, health, weapon, armor):
         Creature.__init__(self, name, health, weapon, armor)
 
-    #Random gen
+    # Random gen
     def __init__(self, name):
         Creature.__init__(self, name)
 
@@ -41,10 +42,11 @@ class Monster(Creature):
     def __init__(self, name, health, weapon, armor):
         Creature.__init__(self, name, health, weapon, armor)
 
-    #Random gen
+    # Random gen
     def __init__(self):
         names = ["Nasty, slimy blob", "Mega Bird", "Headless Git Repo", "Segmentation Fault", "Angry Bird", "Off-by-one guy"]
         Creature.__init__(self, names[random.randint(0,len(names)-1)])
+
 
 """ 
 Example Creatures
