@@ -1,12 +1,6 @@
-from creature import Creature, Hero, Monster
-from armor import Armor
+from creature import Hero
 from room import Room
-from treasure import Treasure
-from weapon import Weapon
-
-current_room = -1
-rooms = None
-player = None
+import random
 
 
 def greeting():
@@ -18,30 +12,37 @@ def greeting():
           "Chris Mckenney\n")
 
 
-# Return array of random rooms
+# Setup random rooms
+# TODO - THIS JUST MAKES GARBAGE FOR NOW
 def gen_rooms():
-    # retVal = []
-    return NotImplementedError
+    global rooms
+    rooms = list()
+    for x in range(12):
+        rooms.append(Room(1))
 
 
 # Prompt user for name, generate random armor, weapon, & health
 def gen_hero():
-    return NotImplementedError
-    # This is actually really close. It's just missing the random nature...
-    # return Hero(input("Enter name: "), 100, Weapon("Knife",17,4), Armor(9001))
+    global player
+    player = Hero(input("Enter hero name:"))
 
 
 # Instantiate any variables needed
 def init():
+    # Define globals
     global rooms, current_room, player
-    rooms = gen_rooms()
-    current_room = 1
-    player = gen_hero()
+
+    # Call other init methods
+    gen_rooms()
+    gen_hero()
+    random.seed(None)
+
+    # Setup defaults for simple vars
+    current_room = 1 # Player starts out in room 1
 
 
 greeting()
 init()
 while current_room > 0:
-    current_room = rooms[current_room].prompt()
-
+    current_room = rooms(current_room).prompt()
 print("\nGAME OVER")
