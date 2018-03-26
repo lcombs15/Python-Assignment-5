@@ -14,9 +14,9 @@ class Creature:
     # Rand gen
     def __init__(self, name):
         self.name = name
-        self.health = random.randInt(20, 100)
+        self.health = random.randint(20, 100)
         self.weapon = Weapon()
-        self.armor = random.randInt(1, 10)
+        self.armor = random.randint(1, 10)
 
     # String override for printing
     def __str__(self):
