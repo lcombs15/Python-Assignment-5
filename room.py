@@ -11,7 +11,7 @@ class Room:
         self.exits = exits
 
     def __init__(self, exits):
-        self.treasure = random.randInt(20,100)
+        self.treasure = random.randint(20,100)
         self.exits = exits
 
     """
@@ -31,7 +31,7 @@ class Room:
         
         Carry out actions until user exits, then return new room #
     """
-    #TODO
+    # TODO, RETURNS ZERO TO END GAME SINCE THIS ISN"T FINISHED
     def prompt(self, player):
         # IE: fight(player, monster)
-        return NotImplementedError
+        return 0

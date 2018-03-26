@@ -44,5 +44,5 @@ def init():
 greeting()
 init()
 while current_room > 0:
-    current_room = rooms(current_room).prompt()
+    current_room = rooms[current_room].prompt(player)
 print("\nGAME OVER")
