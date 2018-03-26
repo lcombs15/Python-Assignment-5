@@ -31,6 +31,7 @@ class Room:
         
         Carry out actions until user exits, then return new room #
     """
+    #TODO
     def prompt(self, player):
         # IE: fight(player, monster)
         return NotImplementedError
