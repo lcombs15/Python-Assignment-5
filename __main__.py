@@ -38,7 +38,7 @@ def init():
     random.seed(None)
 
     # Setup defaults for simple vars
-    current_room = 1
+    current_room = 1 # Player starts out in room 1
 
 
 greeting()
