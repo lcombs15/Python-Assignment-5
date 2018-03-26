@@ -1,10 +1,11 @@
 import random
+
+
 class Weapon:
     def __init__(self, name, max_damage, swings_per_turn):
         self.name = name
         self.max_damage = max_damage
         self.swings_per_turn = swings_per_turn
-
 
     def __init__(self):
         types = ["Knife", "Sword", "Bow & Arrow", "Spiked Baseball Bat", "Sock o' butter", "Large pipe"]
