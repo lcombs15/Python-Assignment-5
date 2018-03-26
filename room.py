@@ -1,3 +1,5 @@
+import random
+
 # return winner of fight
 def fight(a, b):
     return NotImplementedError
@@ -6,6 +8,10 @@ def fight(a, b):
 class Room:
     def __init__(self, treasure, exits):
         self.treasure = treasure
+        self.exits = exits
+
+    def __init__(self, exits):
+        self.treasure = random.randInt(20,100)
         self.exits = exits
 
     """
