@@ -18,7 +18,7 @@ def fight(a, b):
         print("\nThe fight was a draw!")
         return a
     # If the player died, the Monster wins
-    elif a.health.health <= 0:
+    elif a.health <= 0:
         print("\n" + a.name + " has been defeated by " + b.name)
         return b
     # If the player didn't die, it must have been the Monster
@@ -59,14 +59,14 @@ class Room:
         self.treasure = 0
 
     def leave(self):
-        return input("\nLeave to which room? " + str(self.exits) + " ")
+        return int(input("\nLeave to which room? " + str(self.exits) + " "))
 
     def prompt(self, player):
         random.seed(None)
 
         # Monster may decide to attack user when they enter the room
         if random.randint(0,100) % 2 is 0:
-            print("\n OH NO! The " + str(self.monster.health) + " STRIKES!")
+            print("\n OH NO! The " + str(self.monster.name) + " STRIKES!")
             if fight(self.monster, player) == self.monster:
                 return -1
 
@@ -82,7 +82,8 @@ class Room:
                 self.loot(player)
             elif option is "f":
                 if self.monster.health > 0:
-                    fight(player, monster)
+                    if fight(player, self.monster) == self.monster:
+                        return -1
                 else:
                     print("\nNo monster here to fight....")
             elif option is "e":
