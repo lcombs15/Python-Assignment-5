@@ -62,13 +62,12 @@ class Room:
         return input("\nLeave to which room? " + str(self.exits) + " ")
 
     def prompt(self, player):
-        global monster
         random.seed(None)
 
         # Monster may decide to attack user when they enter the room
         if random.randint(0,100) % 2 is 0:
-            print("\n OH NO! The " + str(monster.health) + " STRIKES!")
-            if fight(monster, player) == monster:
+            print("\n OH NO! The " + str(self.monster.health) + " STRIKES!")
+            if fight(self.monster, player) == self.monster:
                 return -1
 
         while True:
