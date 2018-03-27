@@ -3,6 +3,7 @@ from weapon import Weapon
 
 
 class Creature:
+    treasure = 0
 
     # Constructor
     def __init__(self, name, health, weapon, armor):
