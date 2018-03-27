@@ -13,12 +13,21 @@ def greeting():
 
 
 # Setup random rooms
-# TODO - THIS JUST MAKES GARBAGE FOR NOW
 def gen_rooms():
     global rooms
     rooms = list()
-    for x in range(12):
-        rooms.append(Room(1))
+    for x in range(8):
+        rooms.append(Room(list(), x))
+        if x in (0,8):
+            # No monsters in the start/end rooms
+            x.monster.health = -1
+        if x is 0:
+            rooms[x].exits.append(1)
+        elif x is 8:
+            rooms[x].exits.append(7)
+        else:
+            rooms[x].exits.append(x-1)
+            rooms[x].exits.append(x+1)
 
 
 # Prompt user for name, generate random armor, weapon, & health
@@ -45,4 +54,8 @@ greeting()
 init()
 while current_room >= 0:
     current_room = rooms[current_room].prompt(player)
-print("\nGAME OVER")
+    if current_room is 8:
+        print("You win!")
+        exit()
+
+print("\nGAME OVER!!!")

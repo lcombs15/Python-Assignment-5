@@ -3,6 +3,7 @@ from weapon import Weapon
 
 
 class Creature:
+    treasure = 0
 
     # Constructor
     def __init__(self, name, health, weapon, armor):
@@ -39,8 +40,6 @@ class Hero(Creature):
 
 class Monster(Creature):
     # Monster Wrapper Class
-    def __init__(self, name, health, weapon, armor):
-        Creature.__init__(self, name, health, weapon, armor)
 
     # Random gen
     def __init__(self):
