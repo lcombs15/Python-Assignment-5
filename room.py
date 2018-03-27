@@ -28,15 +28,12 @@ def fight(a, b):
 
 
 class Room:
-    def __init__(self, treasure, exits, the_monster, room_id):
-        self.treasure = treasure
-        self.exits = exits
-        self.id = room_id
-        self.monster = the_monster
-
     def __init__(self, exits, room_id):
         random.seed(None)
-        self.__init__(random.randint(20,100), exits, creature.Monster(), room_id)
+        self.treasure = random.randint(20,100)
+        self.exits = exits
+        self.id = room_id
+        self.monster = creature.Monster()
 
     """
         
