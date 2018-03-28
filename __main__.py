@@ -18,7 +18,7 @@ def gen_rooms():
     rooms = list()
     for x in range(8):
         rooms.append(Room(list(), x))
-        if x in (0,8):
+        if x in (0, 8):
             # No monsters in the start/end rooms
             rooms[x].monster = None
         if x is 0:
@@ -26,8 +26,8 @@ def gen_rooms():
         elif x is 8:
             rooms[x].exits.append(7)
         else:
-            rooms[x].exits.append(x-1)
-            rooms[x].exits.append(x+1)
+            rooms[x].exits.append(x - 1)
+            rooms[x].exits.append(x + 1)
 
 
 # Prompt user for name, generate random armor, weapon, & health
@@ -47,7 +47,7 @@ def init():
     random.seed(None)
 
     # Setup defaults for simple vars
-    current_room = 0 # Player starts out in room 0
+    current_room = 0  # Player starts out in room 0
 
 
 greeting()

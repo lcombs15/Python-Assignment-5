@@ -11,7 +11,7 @@ def fight(a, b):
     # Loop until someone (or both) dies
     while a.health > 0 and b.health > 0:
         if a.weapon.max_damage > b.armor:
-            b.health -= a.weapon.swings_per_turn * random.randint(0,a.weapon.max_damage - b.armor)
+            b.health -= a.weapon.swings_per_turn * random.randint(0, a.weapon.max_damage - b.armor)
 
         if b.weapon.max_damage > a.armor:
             a.health -= b.weapon.swings_per_turn * random.randint(0, b.weapon.max_damage - a.armor)
@@ -33,7 +33,7 @@ def fight(a, b):
 class Room:
     def __init__(self, exits, room_id):
         random.seed(None)
-        self.treasure = random.randint(20,100)
+        self.treasure = random.randint(20, 100)
         self.exits = exits
         self.id = room_id
         self.monster = creature.Monster()
@@ -69,7 +69,7 @@ class Room:
 
         # Monster may decide to attack user when they enter the room
         if self.monster is not None:
-            if random.randint(0,100) % 2 is 0:
+            if random.randint(0, 100) % 2 is 0:
                 print("\n OH NO! The " + str(self.monster.name) + " STRIKES!")
                 if fight(self.monster, player) == self.monster:
                     return -1
@@ -93,14 +93,6 @@ class Room:
                 else:
                     print("\nNo monster here to fight....")
             elif option is "e":
-                    return self.leave()
+                return self.leave()
             else:
                 print("\nINVALID INPUT.")
-
-
-
-
-
-
-
-

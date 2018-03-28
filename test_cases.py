@@ -10,7 +10,7 @@ class TestFighting(unittest.TestCase):
         weak.health = 1
         strong = Hero("Lucas")
         strong.weapon.max_damage = 10
-        self.assertEqual(room.fight(weak,strong), strong)
+        self.assertEqual(room.fight(weak, strong), strong)
 
 
 if __name__ == '__main__':
