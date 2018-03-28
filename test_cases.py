@@ -6,8 +6,10 @@ import room
 class TestFighting(unittest.TestCase):
 
     def test_fight(self):
-        weak = Monster("Blob", 2, None, None)
-        strong = Hero("Lucas", 400, None, None)
+        weak = Monster()
+        weak.health = 1
+        strong = Hero("Lucas")
+        strong.weapon.max_damage = 10
         self.assertEqual(room.fight(weak,strong), strong)
 
 
