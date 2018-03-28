@@ -10,8 +10,11 @@ def fight(a, b):
 
     # Loop until someone (or both) dies
     while a.health > 0 and b.health > 0:
-        b.health -= a.weapon.swings_per_turn * random.randint(0,a.weapon.max_damage)
-        a.health -= b.weapon.swings_per_turn * random.randint(0, b.weapon.max_damage)
+        if a.weapon.max_damage > b.armor:
+            b.health -= a.weapon.swings_per_turn * random.randint(0,a.weapon.max_damage - b.armor)
+
+        if b.weapon.max_damage > a.armor:
+            a.health -= b.weapon.swings_per_turn * random.randint(0, b.weapon.max_damage - a.armor)
 
     # If no one dies, the player wins
     if a.health > 0 and b.health > 0:
@@ -65,10 +68,13 @@ class Room:
         random.seed(None)
 
         # Monster may decide to attack user when they enter the room
-        if random.randint(0,100) % 2 is 0:
-            print("\n OH NO! The " + str(self.monster.name) + " STRIKES!")
-            if fight(self.monster, player) == self.monster:
-                return -1
+        if self.monster is not None:
+            if random.randint(0,100) % 2 is 0:
+                print("\n OH NO! The " + str(self.monster.name) + " STRIKES!")
+                if fight(self.monster, player) == self.monster:
+                    return -1
+            else:
+                print("In the corner you spot: " + str(self.monster) + " in the corner.....")
 
         while True:
             print("\nWhat would you like to do?"
@@ -81,7 +87,7 @@ class Room:
             if option is "t":
                 self.loot(player)
             elif option is "f":
-                if self.monster.health > 0:
+                if self.monster is not None and self.monster.health > 0:
                     if fight(player, self.monster) == self.monster:
                         return -1
                 else:

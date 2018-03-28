@@ -20,7 +20,7 @@ def gen_rooms():
         rooms.append(Room(list(), x))
         if x in (0,8):
             # No monsters in the start/end rooms
-            x.monster.health = -1
+            rooms[x].monster = None
         if x is 0:
             rooms[x].exits.append(1)
         elif x is 8:

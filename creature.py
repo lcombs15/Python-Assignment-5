@@ -21,11 +21,8 @@ class Creature:
 
     # String override for printing
     def __str__(self):
-        return str(type(self).__name__ + ": "
-                   + "\n\tName: " + self.name
-                   + "\n\tHealth: " + str(self.health)
-                   + "\n\tWeapon: " + str(self.weapon)
-                   + "\n\tArmor: " + str(self.armor))
+        return self.name + " (H=" + str(self.health) + ", A=" + str(self.armor) + ")"
+        + "\n\t....wielding a " + str(self.weapon)
 
 
 class Hero(Creature):
