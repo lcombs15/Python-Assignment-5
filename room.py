@@ -79,7 +79,26 @@ class Room:
         self.treasure = 0
 
     def leave(self):
-        return int(input("\nLeave to which room? " + str(self.exits) + " "))
+        retval = int(input("\nLeave to which room? " + str(self.exits) + " "))
+
+        if retval not in self.exits:
+            print("Invalid room.")
+            return self.leave()
+
+        return retval
+
+    def pickup(self, player):
+        print("\nWhat would you like to pick up?")
+
+        for i in range(0, len(self.weapons) - 1):
+            print("\n\t(" + str(i) + ")" + str(self.weapons[i]))
+        i = int(input("\n: "))
+        if i not in range(0, len(self.weapons) - 1):
+            print("\nInvalid selection.")
+            return self.pickup()
+
+        # If a player drops a weapon it lands in the room
+        self.weapons.append(player.pickup(self.weapons[i]))
 
     def prompt(self, player):
         random.seed(None)
@@ -97,6 +116,7 @@ class Room:
             print("\nWhat would you like to do?"
                   "\n (t) Pick up treasure"
                   "\n (f) Fight Monster"
+                  "\n (p) Pick up weapons"
                   "\n (e) Exit to another room")
 
             option = input("\n: ")
@@ -111,5 +131,7 @@ class Room:
                     print("\nNo monster here to fight....")
             elif option is "e":
                 return self.leave()
+            elif option is "p":
+                self.pickup()
             else:
                 print("\nINVALID INPUT.")

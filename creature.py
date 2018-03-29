@@ -12,7 +12,26 @@ class Creature:
         self.weapons = list()
         self.weapons.append(Weapon())
         self.currentWeapon = self.weapons[0]
+
         self.armor = random.randint(1, 10)
+
+    def pickup(self, weapon):
+        if len(self.weapons) is 8:
+            print("\nSelect a weapon to drop:")
+
+            for i in range(0, len(self.weapons)-1):
+                print("\n\t(" + str(i) + ")" + str(self.weapons[i]))
+            i = int(input("\n: "))
+            if i not in range(0, len(self.weapons) - 1):
+                print("\nInvalid selection.")
+                return self.pickup(weapon)
+
+            retval = self.weapons[i]
+            self.weapons[i] = weapon
+            # Tell the room which weapon the player dropped
+            return retval
+        else:
+            self.weapons.append(weapon)
 
     # String override for printing
     def __str__(self):
@@ -35,11 +54,3 @@ class Monster(Creature):
         names = ["Nasty, slimy blob", "Mega Bird", "Headless Git Repo", "Segmentation Fault", "Angry Bird",
                  "Off-by-one guy"]
         Creature.__init__(self, names[random.randint(0, len(names) - 1)])
-
-
-""" 
-Example Creatures
-    print(Creature("Lucas",100,Weapon("Knife",17,4), Armor(9001)))
-    print(Hero("Lucas",100,Weapon("Knife",17,4), Armor(9001)))
-    print(Monster("Lucas",100,Weapon("Knife",17,4), Armor(9001)))
-"""
