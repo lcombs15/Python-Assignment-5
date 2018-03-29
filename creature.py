@@ -53,5 +53,5 @@ class Monster(Creature):
     # Random gen
     def __init__(self):
         names = ["Nasty, slimy blob", "Mega Bird", "Headless Git Repo", "Segmentation Fault", "Angry Bird",
-                 "Off-by-one guy", "Mr. Poopy Butthole"]
+                 "Off-by-one guy"]
         Creature.__init__(self, names[random.randint(0, len(names) - 1)])
