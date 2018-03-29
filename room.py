@@ -66,16 +66,15 @@ class Room:
 
     def pickup(self, player):
         print("\nWhat would you like to pick up?")
-        index = 0
-        for w in self.weapons:
-            print("\n\t(" + str(index) + ")" + str(w))
-            index += 1
-        if index not in range (0, len(self.weapons)-1):
+
+        for i in range(0, len(self.weapons) - 1):
+            print("\n\t(" + str(i) + ")" + str(self.weapons[i]))
+        if i not in range(0, len(self.weapons) - 1):
             print("\nInvalid selection.")
             return self.pickup()
 
         # If a player drops a weapon it lands in the room
-        self.weapons.append(player.pickup(self.weapons[w]))
+        self.weapons.append(player.pickup(self.weapons[i]))
 
     def prompt(self, player):
         random.seed(None)
