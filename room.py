@@ -132,6 +132,6 @@ class Room:
             elif option is "e":
                 return self.leave()
             elif option is "p":
-                self.pickup()
+                self.pickup(player)
             else:
                 print("\nINVALID INPUT.")
