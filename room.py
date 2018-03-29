@@ -67,7 +67,7 @@ class Room:
         if retval not in self.exits:
             print("Invalid room.")
             return self.leave()
-        
+
         return retval
 
     def pickup(self, player):
@@ -75,6 +75,7 @@ class Room:
 
         for i in range(0, len(self.weapons) - 1):
             print("\n\t(" + str(i) + ")" + str(self.weapons[i]))
+        i = int(input("\n: "))
         if i not in range(0, len(self.weapons) - 1):
             print("\nInvalid selection.")
             return self.pickup()
