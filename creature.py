@@ -9,7 +9,9 @@ class Creature:
     def __init__(self, name):
         self.name = name
         self.health = random.randint(20, 100)
-        self.weapon = list(Weapon())
+        self.weapons = list()
+        self.weapons.append(Weapon())
+        self.currentWeapon = self.weapons[0]
         self.armor = random.randint(1, 10)
 
     # String override for printing
