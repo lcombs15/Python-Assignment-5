@@ -9,8 +9,26 @@ class Creature:
     def __init__(self, name):
         self.name = name
         self.health = random.randint(20, 100)
-        self.weapon = list().append(Weapon())
+        self.weapons = list().append(Weapon())
         self.armor = random.randint(1, 10)
+
+    def pickup(self, weapon):
+        if len(self.weapons) is 8:
+            print("\nSelect a weapon to drop:")
+            index = 0
+            for w in self.weapons:
+                print("\n\t(" + str(index) + ")" + str(w))
+                index += 1
+            if index not in range(0, len(self.weapons) - 1):
+                print("\nInvalid selection.")
+                return self.pickup(weapon)
+
+            retval = self.weapons[index]
+            self.weapons[index] = weapon
+            # Tell the room which weapon the player dropped
+            return retval
+        else:
+            self.weapons.append(weapon)
 
     # String override for printing
     def __str__(self):
