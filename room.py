@@ -62,10 +62,13 @@ class Room:
         self.treasure = 0
 
     def leave(self):
-        retVal = int(input("\nLeave to which room? " + str(self.exits) + " "))
-        if retVal not in self.exits:
+        retval = int(input("\nLeave to which room? " + str(self.exits) + " "))
+
+        if retval not in self.exits:
             print("Invalid room.")
-        return self.leave()
+            return self.leave()
+        
+        return retval
 
     def pickup(self, player):
         print("\nWhat would you like to pick up?")
