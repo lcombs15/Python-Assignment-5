@@ -35,6 +35,8 @@ def gen_hero():
     global player
     player = Hero(input("Enter hero name: "))
 
+    print("\nYou begin the game with: " + str(player.armor) + ", " + str(player.currentWeapon))
+
 
 greeting()
 gen_rooms()
