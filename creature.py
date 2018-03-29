@@ -19,9 +19,10 @@ class Creature:
         if len(self.weapons) is 8:
             print("\nSelect a weapon to drop:")
 
-            for i in range(0, len(self.weapons)-1):
+            for i in range(0, len(self.weapons) - 1):
                 print("\n\t(" + str(i) + ")" + str(self.weapons[i]))
-            i = int(input("\n: "))
+            self.int = int(input("\n: "))
+            i = self.int
             if i not in range(0, len(self.weapons) - 1):
                 print("\nInvalid selection.")
                 return self.pickup(weapon)
