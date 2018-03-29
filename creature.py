@@ -23,8 +23,8 @@ class Creature:
                 print("\nInvalid selection.")
                 return self.pickup(weapon)
 
-            retval = self.weapons[index]
-            self.weapons[index] = weapon
+            retval = self.weapons[i]
+            self.weapons[i] = weapon
             # Tell the room which weapon the player dropped
             return retval
         else:
