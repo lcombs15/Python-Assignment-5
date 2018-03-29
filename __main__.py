@@ -2,7 +2,7 @@ from creature import Hero
 from room import Room
 import random
 
-
+#simple greeting output at beginning of game
 def greeting():
     print("Welcome to Dungeons & Snakes!")
     print("NKU\t - \tCSC407")
@@ -43,7 +43,8 @@ current_room = 0
 while current_room >= 0:
     current_room = rooms[current_room].prompt(player)
     if current_room is 8:
-        print("You win!")
+        print("You survived the dungeon with " + str(player.treasure) + "gold!")
+        print()
         exit()
 
 print("\nGAME OVER!!!")

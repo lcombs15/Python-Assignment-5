@@ -15,6 +15,7 @@ class Creature:
 
         self.armor = random.randint(1, 10)
 
+    #pickup selected weapon
     def pickup(self, weapon):
         if len(self.weapons) is 8:
             print("\nSelect a weapon to drop:")
@@ -52,5 +53,5 @@ class Monster(Creature):
     # Random gen
     def __init__(self):
         names = ["Nasty, slimy blob", "Mega Bird", "Headless Git Repo", "Segmentation Fault", "Angry Bird",
-                 "Off-by-one guy"]
+                 "Off-by-one guy", "Mr. Poopy Butthole"]
         Creature.__init__(self, names[random.randint(0, len(names) - 1)])
