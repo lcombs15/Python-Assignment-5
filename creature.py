@@ -9,7 +9,10 @@ class Creature:
     def __init__(self, name):
         self.name = name
         self.health = random.randint(20, 100)
-        self.weapons = list().append(Weapon())
+        self.weapons = list()
+        self.weapons.append(Weapon())
+        self.currentWeapon = self.weapons[0]
+
         self.armor = random.randint(1, 10)
 
     def pickup(self, weapon):
@@ -51,11 +54,3 @@ class Monster(Creature):
         names = ["Nasty, slimy blob", "Mega Bird", "Headless Git Repo", "Segmentation Fault", "Angry Bird",
                  "Off-by-one guy"]
         Creature.__init__(self, names[random.randint(0, len(names) - 1)])
-
-
-""" 
-Example Creatures
-    print(Creature("Lucas",100,Weapon("Knife",17,4), Armor(9001)))
-    print(Hero("Lucas",100,Weapon("Knife",17,4), Armor(9001)))
-    print(Monster("Lucas",100,Weapon("Knife",17,4), Armor(9001)))
-"""

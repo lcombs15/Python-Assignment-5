@@ -8,26 +8,42 @@ def fight(a, b):
     # Seed Random
     random.seed(None)
 
-    # Loop until someone (or both) dies
+    b.currentWeapon = weaponSelect(b)
+
     while a.health > 0 and b.health > 0:
-        if a.weapon.max_damage > b.armor:
-            b.health -= a.weapon.swings_per_turn * random.randint(0, a.weapon.max_damage - b.armor)
+        for i in range(0, a.weapons[0].swings_per_turn):
+            aHit = random.randint(1, 20)
+            if aHit > b.armor:
+                b.health -= random.randint(1, a.weapons[0].max_damage)
 
-        if b.weapon.max_damage > a.armor:
-            a.health -= b.weapon.swings_per_turn * random.randint(0, b.weapon.max_damage - a.armor)
+        if b.health > 0:
+            for i in range(0, b.weapons[0].swings_per_turn):
+                bHit = random.randint(1, 20)
+                if bHit > a.armor:
+                    a.health -= random.randint(1, b.weapons[0].max_damage)
 
-    # If no one dies, the player wins
-    if a.health > 0 and b.health > 0:
-        print("\nThe fight was a draw!")
-        return a
-    # If the player died, the Monster wins
-    elif a.health <= 0:
+    if a.health <= 0:
         print("\n" + a.name + " has been defeated by " + b.name)
         return b
-    # If the player didn't die, it must have been the Monster
-    else:
+    elif b.health <= 0:
         print("\n" + b.name + " has been defeated by " + a.name)
         return a
+
+
+def weaponSelect(hero):
+    print("Please select which weapon you want to use:")
+    i = 0
+    for weapon in hero.weapons:
+        print("\n(" + str(i) + ") " + weapon.name + ": Max damage: " + str(weapon.max_damage))
+        i += 1
+    option = int(input("\n: "))
+
+    if option in range(0, len(hero.weapons)):
+        print("current weapon is now " + hero.weapons[option].name)
+        hero.currentWeapon = hero.weapons[option]
+    else:
+        print("invalid input")
+        weaponSelect(hero)
 
 
 class Room:
@@ -37,6 +53,7 @@ class Room:
         self.exits = exits
         self.id = room_id
         self.monster = creature.Monster()
+        self.weapons = list()
 
     """
         
