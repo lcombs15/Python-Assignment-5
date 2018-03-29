@@ -5,18 +5,11 @@ from weapon import Weapon
 class Creature:
     treasure = 0
 
-    # Constructor
-    def __init__(self, name, health, weapon, armor):
-        self.name = name
-        self.health = health
-        self.weapon = weapon
-        self.armor = armor
-
     # Rand gen
     def __init__(self, name):
         self.name = name
         self.health = random.randint(20, 100)
-        self.weapon = Weapon()
+        self.weapon = list(Weapon())
         self.armor = random.randint(1, 10)
 
     # String override for printing
@@ -27,9 +20,6 @@ class Creature:
 
 class Hero(Creature):
     # Hero Wrapper Class
-    def __init__(self, name, health, weapon, armor):
-        Creature.__init__(self, name, health, weapon, armor)
-
     # Random gen
     def __init__(self, name):
         Creature.__init__(self, name)
