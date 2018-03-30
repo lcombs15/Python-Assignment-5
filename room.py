@@ -14,13 +14,13 @@ class Room:
         self.monster = creature.Monster()
         self.weapons = list()
 
-    #adds amount of gold in room to hero's treasure
+    # adds amount of gold in room to hero's treasure
     def loot(self, player):
         print("\n Picked up " + str(self.treasure) + " gold.")
         player.treasure += self.treasure
         self.treasure = 0
 
-    #moves to selected room adjacent to current room
+    # moves to selected room adjacent to current room
     def leave(self):
         retval = int(input("\nLeave to which room? " + str(self.exits) + " "))
 
@@ -30,17 +30,17 @@ class Room:
 
         return retval
 
-    #If retreating from fight, moves back to previous room
+    # If retreating from fight, moves back to previous room
     def retreat(self):
         retval = self.id - 1
 
         return retval
 
-    #hero picks up weapon if available
+    # hero picks up weapon if available
     def pickup(self, player):
         if len(self.weapons) == 0:
             print("\nThere are no weapons to pick up")
-        else :
+        else:
 
             print("\nWhat would you like to pick up?")
 
@@ -59,7 +59,7 @@ class Room:
             self.weapons.remove(self.weapons[i])
             self.weapons.remove(None)
 
-    #prompt when a room is entered
+    # prompt when a room is entered
     def prompt(self, player):
         random.seed(None)
 
@@ -151,7 +151,7 @@ class Room:
             print("\n(" + str(i) + ") " + weapon.name + ": Max damage: " + str(weapon.max_damage))
             i += 1
         option = int(input("\n: "))
-        #add error handling incase user types a char instead of an int
+        # add error handling incase user types a char instead of an int
 
         if option in range(0, len(hero.weapons)):
             print("current weapon is now " + hero.weapons[option].name)
@@ -160,5 +160,3 @@ class Room:
         else:
             print("invalid input")
             self.weaponSelect(hero)
-
-
