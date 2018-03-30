@@ -2,7 +2,6 @@ from creature import Hero
 from room import Room
 import random
 
-
 # Welcome to the game!
 def greeting():
     print("Welcome to Dungeons & Snakes!")
@@ -36,6 +35,8 @@ def gen_hero():
     global player
     player = Hero(input("Enter hero name: "))
 
+    print("\nYou begin the game with: " + str(player.armor) + ", " + str(player.currentWeapon))
+
 
 greeting()
 gen_rooms()
@@ -47,7 +48,8 @@ current_room = 0
 while current_room >= 0:
     current_room = rooms[current_room].prompt(player)
     if current_room is 8:
-        print("You win!")
+        print("You survived the dungeon with " + str(player.treasure) + "gold!")
+        print()
         exit()
 
 print("\nGAME OVER!!!")

@@ -1,5 +1,6 @@
 import random
 from weapon import Weapon
+from armor import *
 
 
 class Creature:
@@ -13,8 +14,9 @@ class Creature:
         self.weapons.append(Weapon())
         self.currentWeapon = self.weapons[0]
 
-        self.armor = random.randint(1, 10)
+        self.armor = Armor()
 
+    #pickup selected weapon
     def pickup(self, weapon):
         if len(self.weapons) is 8:
             print("\nSelect a weapon to drop:")
