@@ -14,7 +14,6 @@ class Room:
         self.monster = creature.Monster()
         self.weapons = list()
 
-
     def loot(self, player):
         print("\n Picked up " + str(self.treasure) + " gold.")
         player.treasure += self.treasure
@@ -32,7 +31,7 @@ class Room:
     def pickup(self, player):
         if len(self.weapons) == 0:
             print("\nThere are no weapons to pick up")
-        else :
+        else:
 
             print("\nWhat would you like to pick up?")
 
@@ -49,7 +48,6 @@ class Room:
 
             self.weapons.remove(self.weapons[i])
             self.weapons.remove(None)
-
 
     def prompt(self, player):
         random.seed(None)
@@ -131,7 +129,7 @@ class Room:
             print("\n(" + str(i) + ") " + weapon.name + ": Max damage: " + str(weapon.max_damage))
             i += 1
         option = int(input("\n: "))
-        #add error handling incase user types a char instead of an int
+        # add error handling incase user types a char instead of an int
 
         if option in range(0, len(hero.weapons)):
             print("current weapon is now " + hero.weapons[option].name)
@@ -140,5 +138,3 @@ class Room:
         else:
             print("invalid input")
             self.weaponSelect(hero)
-
-
