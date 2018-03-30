@@ -10,7 +10,7 @@ class Armor:
                  "Banana Suit", "Ugly Sweater", "Fedora & a tie",
                  "Super-fresh suite", "Worthless 2018 UK NCAA Champs Gear"]
         # Assign random name from list
-        self.name = self.names[random.randint(0, len(self.names) - 1)]
+        self.name = names[random.randint(0, len(names) - 1)]
 
     def __str__(self):
         return self.name + " (a=" + str(self.value) + ")"

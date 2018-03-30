@@ -1,0 +1,134 @@
+Welcome to Dungeons & Snakes!
+NKU      -      CSC407
+Coded by: Lucas Combs, Graeham Heil, & Chris Mckenney
+
+Enter hero name: Benelli
+
+You begin the game with: Chain Mail (a=6), Sock o' butter (d=2,spt=3)
+
+Benelli has entered room #0
+
+What would you like to do?
+ (t) Pick up treasure
+ (f) Fight Monster
+ (p) Pick up weapons
+ (e) Exit to another room
+
+: e
+
+Leave to which room? [1] 1
+
+Benelli has entered room #1
+
+ OH NO! The Off-by-one guy STRIKES!
+
+ Do you fight or retreat!?
+ (f) Fight
+ (r) Retreat
+
+: f
+Please select which weapon you want to use:
+
+(0) Sock o' butter: Max damage: 2
+
+: 0
+current weapon is now Sock o' butter
+
+Off-by-one guy has been defeated by Benelli
+
+Off-by-one guy dropped Knife
+
+What would you like to do?
+ (t) Pick up treasure
+ (f) Fight Monster
+ (p) Pick up weapons
+ (e) Exit to another room
+
+: p
+
+What would you like to pick up?
+
+        (0)Knife (d=4,spt=1)
+
+: 0
+
+Benelli picked up Knife
+
+What would you like to do?
+ (t) Pick up treasure
+ (f) Fight Monster
+ (p) Pick up weapons
+ (e) Exit to another room
+
+: e
+
+Leave to which room? [0, 2] 2
+
+Benelli has entered room #2
+
+ OH NO! The Mega Bird STRIKES!
+
+ Do you fight or retreat!?
+ (f) Fight
+ (r) Retreat
+
+: r
+
+Benelli has entered room #1
+
+What would you like to do?
+ (t) Pick up treasure
+ (f) Fight Monster
+ (p) Pick up weapons
+ (e) Exit to another room
+
+: e
+
+Leave to which room? [0, 2] 2
+
+Benelli has entered room #2
+
+Benelli spots Mega Bird (H=41, A=Banana Suit (a=6))
+        ....wielding a Prison Shank (d=10,spt=2) in the corner.....
+
+What would you like to do?
+ (t) Pick up treasure
+ (f) Fight Monster
+ (p) Pick up weapons
+ (e) Exit to another room
+
+: t
+
+ Picked up 73 gold.
+
+What would you like to do?
+ (t) Pick up treasure
+ (f) Fight Monster
+ (p) Pick up weapons
+ (e) Exit to another room
+
+: e
+
+Leave to which room? [1, 3] 3
+
+Benelli has entered room #3
+
+ OH NO! The Off-by-one guy STRIKES!
+
+ Do you fight or retreat!?
+ (f) Fight
+ (r) Retreat
+
+: f
+Please select which weapon you want to use:
+
+(0) Sock o' butter: Max damage: 2
+
+(1) Knife: Max damage: 4
+
+: 1
+current weapon is now Knife
+
+Benelli has been defeated by Off-by-one guy
+
+GAME OVER!!!
