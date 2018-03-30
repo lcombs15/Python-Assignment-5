@@ -115,13 +115,13 @@ class Room:
         while hero.health > 0 and monster.health > 0:
             for i in range(0, hero.weapons[0].swings_per_turn):
                 heroHit = random.randint(1, 20)
-                if heroHit > monster.armor:
+                if heroHit > monster.armor.value:
                     monster.health -= random.randint(1, hero.weapons[0].max_damage)
 
             if monster.health > 0:
                 for i in range(0, monster.weapons[0].swings_per_turn):
                     monsterHit = random.randint(1, 20)
-                    if monsterHit > hero.armor:
+                    if monsterHit > hero.armor.value:
                         hero.health -= random.randint(1, monster.weapons[0].max_damage)
 
         if hero.health <= 0:
