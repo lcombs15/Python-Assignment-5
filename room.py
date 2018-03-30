@@ -2,9 +2,6 @@ import random
 import creature
 
 
-# return winner of fight
-
-
 class Room:
     def __init__(self, exits, room_id):
         random.seed(None)
@@ -55,7 +52,7 @@ class Room:
             self.weapons.append(player.pickup(self.weapons[i]))
             print("\n" + player.name + " picked up " + self.weapons[i].name)
 
-            #if weapon is picked up, removed from room inventory
+            # if weapon is picked up, removed from room inventory
             self.weapons.remove(self.weapons[i])
             self.weapons.remove(None)
 
@@ -107,14 +104,13 @@ class Room:
             else:
                 print("\nINVALID INPUT.")
 
-    #called when a fight is commenced
+    # called when a fight is commenced
     def fight(self, hero, monster):
         # Seed Random
         random.seed(None)
 
-        #allows hero to select from available weapons
+        # allows hero to select from available weapons
         self.weaponSelect(hero)
-
 
         while hero.health > 0 and monster.health > 0:
             for i in range(0, hero.weapons[0].swings_per_turn):
@@ -135,15 +131,15 @@ class Room:
         elif monster.health <= 0:
             print("\n" + monster.name + " has been defeated by " + hero.name)
 
-            #monster drops weapon if defeated; added to room inventory
+            # monster drops weapon if defeated; added to room inventory
             for weapon in monster.weapons:
                 self.weapons.append(weapon)
                 print("\n" + monster.name + " dropped " + weapon.name)
-            #if monster is defeated, monster removed from room
+            # if monster is defeated, monster removed from room
             self.monster = None
             return hero
 
-    #Select from hero's weapon inventory
+    # Select from hero's weapon inventory
     def weaponSelect(self, hero):
         print("Please select which weapon you want to use:")
         i = 0

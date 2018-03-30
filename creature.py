@@ -13,18 +13,17 @@ class Creature:
         self.weapons = list()
         self.weapons.append(Weapon())
         self.currentWeapon = self.weapons[0]
-
         self.armor = Armor()
 
-    #pickup selected weapon
+    # pickup selected weapon
     def pickup(self, weapon):
         if len(self.weapons) is 8:
             print("\nSelect a weapon to drop:")
 
             for i in range(0, len(self.weapons) - 1):
                 print("\n\t(" + str(i) + ")" + str(self.weapons[i]))
-            self.int = int(input("\n: "))
-            i = self.int
+            temp = int(input("\n: "))
+            i = temp
             if i not in range(0, len(self.weapons) - 1):
                 print("\nInvalid selection.")
                 return self.pickup(weapon)
@@ -38,8 +37,8 @@ class Creature:
 
     # String override for printing
     def __str__(self):
-        return self.name + " (H=" + str(self.health) + ", A=" + str(self.armor) + ")"
-        + "\n\t....wielding a " + str(self.weapon)
+        return self.name + " (H=" + str(self.health) + ", A=" + str(self.armor) + ")" + "\n\t....wielding a " + str(
+            self.weapons[0])
 
 
 class Hero(Creature):
@@ -54,6 +53,8 @@ class Monster(Creature):
 
     # Random gen
     def __init__(self):
-        names = ["Nasty, slimy blob", "Mega Bird", "Headless Git Repo", "Segmentation Fault", "Angry Bird",
+        names = ["Nasty, slimy blob", "Mega Bird", "Headless Git Repo",
+                 "Segmentation Fault", "Angry Bird",
                  "Off-by-one guy"]
+        # Random name from list
         Creature.__init__(self, names[random.randint(0, len(names) - 1)])
